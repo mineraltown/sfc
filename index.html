@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>花之芽村的攻略百科</title>
+    <meta name="description" content="《牧场物语》系列首作。" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="container.css" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.22/vue.global.prod.min.js" as="script" />
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <header>
+            <h1 class="title">花之芽村的攻略百科</h1>
+            <p class="subtitle">《牧场物语》系列首作，一切开始的地方。</p>
+        </header>
+        <div class="layout">
+            <!-- 桌面端：侧边分类导航 / 移动端：当前分类下的条目列表 -->
+            <nav class="menu">
+                <div v-for="(category, categoryName) in displayMenu" :key="categoryName" class="category">
+                    <div class="category-title" v-text="categoryName"></div>
+                    <ul>
+                        <li v-for="(url, itemName) in category" :key="itemName">
+                            <a href="#" :class="{ active: currentUrl === url }" @click.prevent="loadPage(url)"><span
+                                    v-text="itemName"></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 移动端底部 Tab 栏，用于切换分类 -->
+            <nav class="tab-bar">
+                <a v-for="(_, categoryName) in menu?.Menu" :key="categoryName" href="#"
+                    :class="{ active: activeCategory === categoryName }" @click.prevent="activeCategory = categoryName"
+                    v-text="categoryName"></a>
+            </nav>
+            <!-- v-html: 内容来源于本地受控的攻略数据，非用户输入 -->
+            <div class="container" v-html="currentContent"></div>
+        </div>
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.22/vue.global.prod.min.js"></script>
+<script src="sfc.js"></script>
+
+</html>

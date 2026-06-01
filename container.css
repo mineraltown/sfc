@@ -1,0 +1,281 @@
+/* ===== container.css ===== */
+
+/* 基础重置 */
+.container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+/* ===== 标题系统 ===== */
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container h5 {
+  color: var(--text-heading);
+  margin-bottom: 0.75em;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.container h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 16px;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+.container h2 {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* H2 装饰符号 */
+.container h2::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 1.2em;
+  background: var(--accent);
+  border-radius: 4px;
+  margin-right: 12px;
+}
+
+.container h3 {
+  font-size: 1.25rem;
+  color: var(--accent-dark);
+}
+
+.container h4 {
+  font-size: 1.1rem;
+}
+
+.container h5 {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* ===== 文本元素 ===== */
+.container p {
+  margin-bottom: 1em;
+  color: var(--text-primary);
+}
+
+.container a {
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.container a:hover {
+  color: var(--accent-dark);
+}
+
+/* 高级感下划线动画 */
+.container a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--accent-dark);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.container a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.container strong,
+.container b {
+  font-weight: 600;
+  color: var(--text-heading);
+  background: linear-gradient(
+    120deg,
+    var(--accent-light) 0%,
+    var(--accent-light) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 88%;
+}
+
+.container em,
+.container i {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* ===== 列表系统 ===== */
+.container ul,
+.container ol {
+  padding-left: 1.5em;
+  margin-bottom: 1.2em;
+}
+
+.container li {
+  margin-bottom: 0.5em;
+}
+
+/* 自定义无序列表标记 */
+.container ul {
+  list-style-type: none;
+}
+
+.container ul > li {
+  position: relative;
+}
+
+.container ul > li::before {
+  content: "•";
+  color: var(--accent);
+  font-size: 1.2em;
+  position: absolute;
+  left: -1em;
+  top: -0.1em;
+}
+
+/* 自定义有序列表标记 */
+.container ol {
+  list-style: none;
+  counter-reset: custom-counter;
+}
+
+.container ol > li {
+  counter-increment: custom-counter;
+  position: relative;
+}
+
+.container ol > li::before {
+  content: counter(custom-counter) ".";
+  color: var(--accent);
+  font-weight: 600;
+  position: absolute;
+  left: -1.5em;
+}
+
+/* ===== 引用块 (Blockquote) ===== */
+.container blockquote {
+  margin: 1.5em 0;
+  padding: 16px 20px;
+  background: var(--bg-chip);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  color: var(--text-secondary);
+  font-size: 0.95em;
+}
+
+.container blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== 注音符号 (Ruby & Rt) ===== */
+.container ruby {
+  ruby-align: center;
+  ruby-position: over;
+}
+
+.container rt {
+  font-size: 0.6em;
+  /* 注音字号适当调小 */
+  color: var(--text-secondary);
+  font-weight: 400;
+  line-height: 1;
+  transform: translateY(-2px);
+  letter-spacing: 0;
+}
+
+/* ===== 数据表格 (高级卡片化设计 - 深色表头版) ===== */
+.container .table-wrapper {
+  overflow-x: auto;
+  /* 移动端防溢出 */
+  margin: 1.5em 0;
+  box-shadow: 0 4px 16px rgba(45, 51, 42, 0.03);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+}
+
+.container table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+/* 为 thead 设置深色背景 */
+.container thead {
+  background-color: var(--accent-dark);
+}
+
+.container th {
+  padding: 14px 16px;
+  color: #ffffff;
+  /* 深色背景下，文字切换为白色以保证可读性与高级感 */
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.container td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-cell);
+  color: var(--text-primary);
+}
+
+/* 移除最后一行单元格的底边框，避免与外包裹层的圆角冲突 */
+.container tr:last-child td {
+  border-bottom: none;
+}
+
+.container tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+/* 斑马纹：偶数行背景 */
+.container tbody tr:nth-child(even) {
+  background: var(--bg-table-even);
+}
+
+/* 悬停效果 */
+.container tbody tr:hover {
+  background: var(--bg-table-hover);
+}
+
+/* ===== 代码块补充 (可选，以防攻略中存在代码/控制台指令) ===== */
+.container code {
+  background: var(--bg-chip);
+  color: var(--accent-dark);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.85em;
+}
+
+.container pre {
+  background: #282c34;
+  color: #abb2bf;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.container pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}

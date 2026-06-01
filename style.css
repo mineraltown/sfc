@@ -1,0 +1,339 @@
+@charset "utf-8";
+
+[v-cloak] {
+  display: none;
+}
+
+/* 全局颜色变量 */
+:root {
+  --bg-page: #f4f2eb; /* 温暖的纸张底色 */
+  --bg-card: #ffffff; /* 纯白卡片，突出内容 */
+  --bg-chip: #f1f4ec; /* 极浅的抹茶绿背景 */
+  --bg-chip-hover: #5a7a50; /* 沉稳的深橄榄绿 */
+  --bg-table-hover: #f7f9f4; /* 表格悬停底色 */
+  --bg-table-even: #fdfdfc; /* 表格偶数行底色 */
+
+  /* 柔和的分割线 */
+  --border-light: #e6e4dc;
+  --border-cell: #eeebe3;
+
+  --text-primary: #2d332a; /* 深墨绿灰，代替纯黑，更护眼 */
+  --text-secondary: #767b72; /* 次要文字颜色 */
+  --text-heading: #3a4a33; /* 标题专属深色 */
+  --text-chip: #5a7a50; /* 标签文字色 */
+
+  --accent: #6b8e5c; /* 主题强调色 */
+  --accent-dark: #4a633f; /* 强调色暗色 */
+  --accent-light: #e5eadf; /* 强调色亮色 */
+
+  /* 高级多层柔和阴影 */
+  --shadow-card:
+    0 2px 8px rgba(45, 51, 42, 0.04), 0 8px 24px rgba(45, 51, 42, 0.04);
+  --shadow-elevated: 0 12px 32px rgba(45, 51, 42, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans SC",
+    "Microsoft YaHei", sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  /* 让字体渲染更平滑 */
+}
+
+header {
+  padding: 10px 0;
+}
+
+#app {
+  max-width: 1000px;
+  /* 稍微放宽以适应更好的留白 */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--text-heading);
+  text-align: center;
+  margin-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+#app > img {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: var(--shadow-elevated);
+  margin-bottom: 24px;
+}
+
+/* ===== 桌面端两栏布局 ===== */
+.layout {
+  display: flex;
+  gap: 24px;
+}
+
+/* 侧边栏 */
+.menu {
+  flex: 0 0 240px;
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  align-self: flex-start;
+  position: sticky;
+  top: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  /* 增加边缘高光质感 */
+}
+
+/* 自定义滚动条 */
+.menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.menu::-webkit-scrollbar-thumb {
+  background-color: var(--border-light);
+  border-radius: 10px;
+}
+
+.menu .category {
+  margin-bottom: 24px;
+}
+
+.menu .category:last-child {
+  margin-bottom: 0;
+}
+
+.menu .category-title {
+  font-size: 0.9rem;
+  color: var(--text-heading);
+  margin-bottom: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+}
+
+.menu .category-title::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.menu li a {
+  display: inline-block;
+  padding: 3px 12px;
+  background: var(--bg-chip);
+  border-radius: 100px;
+  color: var(--text-chip);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid transparent;
+}
+
+.menu li a:hover {
+  background: var(--accent-light);
+  color: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.menu li a:active {
+  transform: translateY(0);
+}
+
+.menu li a.active {
+  background: var(--bg-chip-hover);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(90, 122, 80, 0.3);
+}
+
+/* 内容区域 */
+.container {
+  flex: 1;
+  padding: 40px;
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  min-height: 60vh;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* 移动端底部 Tab 栏 */
+.tab-bar {
+  display: none;
+}
+
+/* ===== 移动端适配 (<=768px) ===== */
+@media (max-width: 768px) {
+  header {
+    padding: 0;
+  }
+
+  #app {
+    padding: 20px 12px 0;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+
+  .subtitle {
+    margin-bottom: 8px;
+    flex-shrink: 0;
+  }
+
+  .layout {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+
+  .menu {
+    flex: none;
+    width: 100%;
+    padding: 0;
+    max-height: none;
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+  }
+
+  .menu .category-title {
+    display: none;
+  }
+
+  .menu ul {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 4px 0 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .menu ul::-webkit-scrollbar {
+    display: none;
+    /* 移动端隐藏滚动条 */
+  }
+
+  .menu li a {
+    background: var(--bg-card);
+    padding: 3px 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    white-space: nowrap;
+  }
+
+  .menu li a.active {
+    position: relative;
+    z-index: 1;
+  }
+
+  .container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 20px;
+    border-radius: 16px 16px 0 0;
+    /* 移动端底部直角对接 Tab 栏 */
+    padding-bottom: 100px;
+    /* 给 tab 栏留出空间 */
+  }
+
+  /* 现代感毛玻璃 Tab 栏 */
+  .tab-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
+    z-index: 100;
+    padding-bottom: env(safe-area-inset-bottom);
+    /* 适配全面屏底部小黑条 */
+  }
+
+  .tab-bar a {
+    flex: 1;
+    text-align: center;
+    padding: 14px 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .tab-bar a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 0 0 4px 4px;
+    transition: width 0.3s;
+  }
+
+  .tab-bar a.active {
+    color: var(--text-heading);
+    font-weight: 600;
+  }
+
+  .tab-bar a.active::after {
+    width: 6em;
+  }
+}

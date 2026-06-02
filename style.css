@@ -65,6 +65,7 @@ header {
 .title {
   font-size: 2rem;
   color: var(--text-heading);
+  text-shadow: 2px 2px 2px var(--border-light);
   text-align: center;
   margin-bottom: 8px;
   font-weight: 700;

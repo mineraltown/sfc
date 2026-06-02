@@ -21,12 +21,11 @@
 }
 
 .container h1 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   text-align: center;
-  border-bottom: 2px solid var(--border-light);
-  padding-bottom: 16px;
+  text-shadow: 2px 2px 2px var(--border-light);
   margin-top: 0;
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
 }
 
 .container h2 {
@@ -212,7 +211,7 @@
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   text-align: left;
 }
 
@@ -222,7 +221,7 @@
 }
 
 .container th {
-  padding: 14px 16px;
+  padding: 7px 8px;
   color: #ffffff;
   /* 深色背景下，文字切换为白色以保证可读性与高级感 */
   font-weight: 600;
@@ -231,7 +230,7 @@
 }
 
 .container td {
-  padding: 12px 16px;
+  padding: 6px 8px;
   border-bottom: 1px solid var(--border-cell);
   color: var(--text-primary);
 }

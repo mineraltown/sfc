@@ -40,8 +40,8 @@
 
 ![登场人物](./Images/illust_bokumono.jpg)
 
-- [ ] [妮娜](Resident/Nina.html)
-- [ ] [玛丽亚](Resident/Maria.html)
-- [ ] [安](Resident/Ann.html)
-- [ ] [伊芙](Resident/Ivu.html)
-- [ ] [艾莲](Resident/Eren.html)
+- [x] [妮娜](Resident/Niina.html)
+- [x] [玛丽亚](Resident/Maria.html)
+- [x] [安](Resident/Ann.html)
+- [x] [伊芙](Resident/Ivu.html)
+- [x] [艾莲](Resident/Eren.html)

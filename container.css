@@ -226,7 +226,7 @@
   /* 深色背景下，文字切换为白色以保证可读性与高级感 */
   font-weight: 600;
   white-space: nowrap;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid var(--border-cell);
 }
 
 .container td {
@@ -235,13 +235,22 @@
   color: var(--text-primary);
 }
 
+.container tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.container tbody th {
+  color: var(--accent-dark);
+  font-size: 1.2em;
+}
+
 /* 移除最后一行单元格的底边框，避免与外包裹层的圆角冲突 */
 .container tr:last-child td {
   border-bottom: none;
 }
 
-.container tbody tr {
-  transition: background-color 0.2s ease;
+.container tr:last-child th {
+  border-bottom: none;
 }
 
 /* 斑马纹：偶数行背景 */
@@ -254,7 +263,7 @@
   background: var(--bg-table-hover);
 }
 
-/* ===== 代码块补充 (可选，以防攻略中存在代码/控制台指令) ===== */
+/* ===== 代码块补充 ===== */
 .container code {
   background: var(--bg-chip);
   color: var(--accent-dark);
@@ -277,4 +286,13 @@
   background: none;
   color: inherit;
   padding: 0;
+}
+
+.tag {
+  font-weight: 600;
+  color: var(--text-heading);
+  background: linear-gradient(120deg, var(--gold) 0%, var(--gold) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 88%;
 }

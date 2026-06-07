@@ -30,6 +30,9 @@
   --shadow-card:
     0 2px 8px rgba(45, 51, 42, 0.04), 0 8px 24px rgba(45, 51, 42, 0.04);
   --shadow-elevated: 0 12px 32px rgba(45, 51, 42, 0.08);
+
+  /* 柔和金色 */
+  --gold: #f7d774;
 }
 
 * {

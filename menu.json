@@ -1,0 +1,31 @@
+{
+    "Version": "sfc",
+    "Menu": {
+        "基础知识": {
+            "游戏介绍": "intro.html",
+            "按键操作": "keyboard.html",
+            "体力值": "physical.html"
+        },
+        "牧场生活": {
+            "农作": "farm.html",
+            "动物": "animal.html",
+            "道具": "tools.html",
+            "山货": "goods.html",
+            "增筑": "extension.html"
+        },
+        "村庄居民": {
+            "居民": "resident.html",
+            "地点": "maps.html",
+            "节日": "festival.html",
+            "事件": "event.html",
+            "结婚": "marry.html"
+        }
+    },
+    "Resident": {
+        "妮娜": "Nina.html",
+        "玛丽亚": "aria.html",
+        "安": "Ann.html",
+        "伊芙": "Ivu.html",
+        "艾莲": "Eren.html"
+    }
+}

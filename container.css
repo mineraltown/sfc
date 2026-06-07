@@ -15,6 +15,7 @@
 .container h4,
 .container h5 {
   color: var(--text-heading);
+  margin-top: 1rem;
   margin-bottom: 0.75em;
   line-height: 1.4;
   font-weight: 600;

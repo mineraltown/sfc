@@ -1,9 +1,9 @@
 # 牧场物语
 
-《牧场物语》系列的首作。
+《牧场物语》系列的首作。  
 舞台是 “花之芽村”，讲述了一个以成为牧场主为目标的男孩，用 3 年时间重建祖父留下的牧场的故事。
 
-（日）牧場物語
+（日）牧場物語  
 （美）Harvest Moon
 
 平台：
@@ -37,8 +37,6 @@
 - [x] [结婚](marry.html)
 
 ## 居民
-
-![登场人物](./Images/illust_bokumono.jpg)
 
 - [x] [妮娜](Resident/Niina.html)
 - [x] [玛丽亚](Resident/Maria.html)
